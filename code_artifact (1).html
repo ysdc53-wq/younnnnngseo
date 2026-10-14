@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUNGSEO JEE | Official Profile</title>
+    <!-- Google Fonts: Inter & Syne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Dark Theme (Default BELIFT Aesthetic) */
+        :root {
+            --bg-main: #0a0a0a;
+            --bg-card: #121212;
+            --bg-hover: #1e1e1e;
+            --border-color: #262626;
+            --border-light: #3a3a3a;
+            
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #52525b;
+            
+            --accent: #ffffff;
+            --accent-inverse: #000000;
+            
+            --header-bg: rgba(10, 10, 10, 0.9);
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Light Theme Option */
+        [data-theme="light"] {
+            --bg-main: #ffffff;
+            --bg-card: #f4f4f5;
+            --bg-hover: #e4e4e7;
+            --border-color: #e4e4e7;
+            --border-light: #d4d4d8;
+            
+            --text-primary: #09090b;
+            --text-secondary: #71717a;
+            --text-muted: #a1a1aa;
+            
+            --accent: #09090b;
+            --accent-inverse: #ffffff;
+            
+            --header-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        header.top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--header-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .brand-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: var(--text-primary);
+            color: var(--accent-inverse);
+        }
+
+        .profile-head-section {
+            padding-top: 130px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .artist-title-box {
+            margin-bottom: 40px;
+        }
+
+        .artist-title-box h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        .artist-title-box p.subtitle {
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            font-weight: 600;
+        }
+
+        /* BELIFT Info Specs Grid */
+        .info-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            padding: 24px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 50px;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .spec-label {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .spec-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .profile-card-container {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            overflow: hidden;
+            width: 100%;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+
+        /* Fallback Box Displayed when image path is missing or fails */
+        .fallback-avatar {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 12px;
+            padding: 20px;
+            color: var(--text-muted);
+        }
+
+        .fallback-avatar svg {
+            width: 80px;
+            height: 80px;
+            stroke: var(--text-muted);
+        }
+
+        .fallback-avatar span {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .card-name-tag {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-name-tag strong {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .card-name-tag span {
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            color: #a1a1aa;
+            text-transform: uppercase;
+        }
+
+        .profile-intro-text p {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 24px;
+        }
+
+        .profile-intro-text p.highlight {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 1.3rem;
+            border-left: 2px solid var(--text-primary);
+            padding-left: 20px;
+            margin-bottom: 32px;
+        }
+
+        .capabilities-section, .experience-section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 48px;
+        }
+
+        .section-title-line h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .cap-box {
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            padding: 36px 28px;
+            transition: var(--transition);
+        }
+
+        .cap-box:hover {
+            border-color: var(--text-primary);
+            background-color: var(--bg-hover);
+        }
+
+        .cap-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .cap-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .cap-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Timeline List */
+        .timeline-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .timeline-date {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .timeline-role {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Contact & Footer */
+        footer {
+            padding: 40px 0;
+            background-color: var(--bg-main);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .info-specs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .profile-card-container {
+                grid-template-columns: 1fr;
+            }
+
+            .card-image-wrapper {
+                max-width: 100%;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="container nav-inner">
+            <a href="#" class="brand-logo">YOUNGSEO JEE</a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="#capabilities">Capabilities</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Color Theme">
+                <span id="themeText">LIGHT MODE</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="profile-head-section" id="profile">
+        <div class="container">
+            
+            <div class="artist-title-box">
+                <h1>Youngseo Jee</h1>
+                <p class="subtitle">// Official Artist &amp; Professional Profile</p>
+            </div>
+
+            <!-- Specs Grid -->
+            <div class="info-specs-grid">
+                <div class="spec-item">
+                    <span class="spec-label">NAME</span>
+                    <span class="spec-value">Youngseo Jee</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">ROLE</span>
+                    <span class="spec-value">Marketer &amp; Designer</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">MAJOR</span>
+                    <span class="spec-value">Business Administration</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">FOCUS</span>
+                    <span class="spec-value">Brand Strategy &amp; UI/UX</span>
+                </div>
+            </div>
+
+            <!-- Card & Biography Grid -->
+            <div class="profile-card-container">
+                
+                <!-- Profile Image Card -->
+                <div class="card-image-wrapper">
+                    <!-- 
+                        NOTE FOR IMAGE:
+                        Place your image file named "증사.jpeg" in the same folder as this index.html file.
+                        If the image fails to load, it automatically switches to a clean fallback profile shape.
+                    -->
+                    <img id="profileImg" src="./증사.jpeg" alt="Youngseo Jee Profile" onerror="handleImageError()">
+                    
+                    <div id="fallbackBox" class="fallback-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Youngseo Jee<br>[ Image Loading ]</span>
+                    </div>
+
+                    <div class="card-name-tag">
+                        <strong>Youngseo Jee</strong>
+                        <span>BELIFT STYLE // PROFILE</span>
+                    </div>
+                </div>
+
+                <!-- Intro / Philosophy Text -->
+                <div class="profile-intro-text">
+                    <p class="highlight">
+                        "Bridging business administration insights with sharp, minimalist creative direction."
+                    </p>
+                    <p>
+                        I am Youngseo Jee, a Business Administration student specializing in Brand Marketing and Visual Interface Design. My approach integrates structural market analysis with high-impact aesthetics.
+                    </p>
+                    <p>
+                        Dedicated to crafting cohesive brand identities, research-backed campaigns, and modern user experiences that articulate clear visual purpose.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="capabilities-section" id="capabilities">
+        <div class="container">
+            <div class="section-title-line">
+                <h2>CAPABILITIES</h2>
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">[ 01 — 03 ]</span>
+            </div>
+
+            <div class="grid-3">
+                <div class="cap-box">
+                    <span class="cap-num">01</span>
+                    <h3 class="cap-title">Business Strategy</h3>
+                    <p class="cap-desc">Formulating data-driven market strategies, competitive analysis, and strategic business positioning.</p>
+                </div>
+
+                <div class="cap-box">
+                    <span class="cap-num">02</span>
+                    <h3 class="cap-title">Brand Marketing</h3>
+                    <p class="cap-desc">Executing integrated campaign planning, content architecture, and strategic brand messaging.</p>
+                </div>
+
+                <div class="cap-box">
+                    <span class="cap-num">03</span>
+                    <h3 class="cap-title">Visual &amp; UI Design</h3>
+                    <p class="cap-desc">Designing minimalist visual identity systems, digital prototypes, and user interface layouts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience-section" id="experience">
+        <div class="container">
+            <div class="section-title-line">
+                <h2>EXPERIENCE &amp; PROJECTS</h2>
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">[ RECENT ]</span>
+            </div>
+
+            <div class="timeline-list">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 — PRESENT</div>
+                    <div>
+                        <h3 class="timeline-role">Strategic Brand Campaign Project</h3>
+                        <p class="timeline-desc">Analyzed consumer behavioral insights and constructed digital marketing collateral for lifestyle brands.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 — 2024</div>
+                    <div>
+                        <h3 class="timeline-role">UI/UX Interface Redesign</h3>
+                        <p class="timeline-desc">Designed high-fidelity web interfaces focusing on dark mode accessibility, grid systems, and typography hierarchy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 100px 0;" id="contact">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 40px;">
+            <div>
+                <h2 style="font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; text-transform: uppercase;">GET IN TOUCH</h2>
+                <p style="color: var(--text-secondary); margin-top: 12px; font-size: 1.05rem;">Available for marketing strategy and visual design collaborations.</p>
+            </div>
+            <div>
+                <a href="mailto:youngseo.jee@example.com" style="font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 700; border-bottom: 2px solid var(--text-primary); padding-bottom: 4px;">youngseo.jee@example.com &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <div>&copy; 2026 YOUNGSEO JEE. ALL RIGHTS RESERVED.</div>
+            <div>BELIFT-INSPIRED MONOCHROME PROFILE</div>
+        </div>
+    </footer>
+
+    <script>
+        // Image Error Handler to prevent broken icon display
+        function handleImageError() {
+            const img = document.getElementById('profileImg');
+            const fallback = document.getElementById('fallbackBox');
+            if (img) img.style.display = 'none';
+            if (fallback) fallback.style.display = 'flex';
+        }
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeText = document.getElementById('themeText');
+
+        const savedTheme = localStorage.getItem('belift-theme') || 'dark';
+
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeText.textContent = 'DARK MODE';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                themeText.textContent = 'LIGHT MODE';
+            }
+            localStorage.setItem('belift-theme', theme);
+        }
+
+        applyTheme(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(nextTheme);
+        });
+    </script>
+</body>
+</html>
